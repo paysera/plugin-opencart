@@ -1,0 +1,33 @@
+#-- INSTRUKCIJA --
+
+1. PASIDARYKITE VISŲ FAILŲ KOPIJAS;
+2. Perkelkite "admin", "catalog" ir "system" folderius į opencart katalogą;
+3. Administracijos sklityje įdiekite modulį ir suveskite reikiamą informaciją;
+4. SVARBU! Eikite į System->Localisation->Currencies ir įdiekite litų valiutą, valiuta gali likti neaktyvuota;
+5. Įsitikinkite jog "libwebtopay" katalogui uždėtas 755 chmod'as;
+
+Kilus problemoms rašykite į pagalba@mokejimai.lt
+
+#-- ATNAUJINIMAI --
+* 2013-03-07 / Pataisymas. Valiutu konvertavimas. Pritaikyta OpenCart 1.5.5.1;
+* 2012-08-20 / Įdiegta LibWebToPay 1.6
+* 2012-04-25 / Pataisymas. Kelias iki sablono;
+* 2012-04-13 / Pataisymas. Logotipo nuoroda;
+* 2012-03-23 / Įdiegta LibWebToPay 1.5;
+* 2012-03-22 / Pridėta galimybė išjungti mokėjimo būdų sąrašą;
+* 2012-02-14 / Pataisymas. Simboliu kodavimas;
+* 2012-01-26 / Pataisymas. Geo zone bug;
+* 2012-01-26 / Saugumo atnaujinimas;
+* 2011-10-03 / Atnaujinti administratoriaus vertimai;
+* 2011-09-30 / Kelio iki cache.php klaidos pataisymas;
+* 2011-07-08 / Pritaikytas OpenCart 1.5.0.5;
+* 2011-05-23 / Įdiegta LibWebToPay 1.4;
+* 2011-05-23 / Pritaikytas OpenCart 1.4.9.5;
+* 2011-02-09 / Pataisymas. Security bug;
+* 2011-01-25 / Pataisymas. Module installation bug;
+* 2011-01-25 / Įdiegta LibWebToPay 1.3.3;
+* 2010-07-07 / Įdiegta LibWebToPay 1.2.5;
+* 2010-05-07 / Pataisymas. Accept function FIX in catalog controller;
+* 2010-05-05 / Pataisymas. Now working with 1.4.7 version;
+* 2010-04-15 / Pataisymas. Validation.php => projectid check;
+* 2010-02-08 / Sukurtas mokėjimo modulis;

@@ -1,0 +1,34 @@
+#-- INSTRUCTION --
+
+1. BACKUP ALL FILES!!
+2. Copy files to Open Cart directory;
+3. In admin panel active payment method and enter webtopay.com / mokejimai.lt ID code, password and etc;
+4. IMPORTANT! Go to System->Localisation->Currencies and insert Lithuanian litas currency. Currency may be disabled;
+5. Make sure libwebtopay directory is writable and cache.php file is writable;
+
+If any problems occur write to pagalba@mokejimai.lt
+
+#-- UPDATES --
+
+* 2013-03-07 / Fix. Amount conversion. Now works with OpenCart 1.5.5.1;
+* 2012-08-20 / Implemented LibWebToPay 1.6;
+* 2012-04-25 / Fix. Template path;
+* 2012-04-13 / FIX. Logo URL;
+* 2011-05-23 / Implemented LibWebToPay 1.5;
+* 2012-03-22 / New feature - ability to toggle payment list visibility;
+* 2012-02-14 / FIX. Character encoding;
+* 2012-01-26 / FIX. Geo zone bug;
+* 2012-01-26 / Security update;
+* 2011-10-03 / Admin translation update;
+* 2011-09-30 / FIX. Server path bug fix;
+* 2011-05-23 / Now works with OpenCart 1.5.0.5;
+* 2011-05-23 / Implemented LibWebToPay 1.4;
+* 2011-05-23 / Now works with OpenCart 1.4.9.5;
+* 2011-02-09 / FIX. Security bug;
+* 2011-01-25 / FIX. Module installation bug;
+* 2011-01-25 / Implemented LibWebToPay 1.3.3;
+* 2010-07-07 / Implemented LibWebToPay 1.2.5;
+* 2010-05-07 / FIX. Accept function FIX in catalog controller;
+* 2010-05-05 / FIX. Now working with 1.4.7 version;
+* 2010-04-15 / FIX. Validation.php => projectid check;
+* 2010-02-08 / Created payment gateway;
