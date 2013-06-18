@@ -1,0 +1,11 @@
+Diegimas
+
+1. Pasidarykite atsargines kopijas[nebutina].
+2. Perkelkite "admin", "catalog" ir "system" folderius į opencart katalogą.
+3. Administracijos sklityje įdiekite modulį ir suveskite reikiamą informaciją.
+4. SVARBU! Eikite į System->Localisation->Currencies ir įdiekite litų valiutą, valiuta gali likti neaktyvuota.
+5. Įsitikinkite jog "libwebtopay" katalogui uždėtas 755 chmod'as.
+
+Kontaktai
+
+Kilus klausimams prasome kreiptis i pagalba@mokejimai.lt
