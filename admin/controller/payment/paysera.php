@@ -16,7 +16,7 @@ class ControllerPaymentPaysera extends Controller {
                 $this->redirect(HTTPS_SERVER . 'index.php?route=extension/payment&token=' . $this->session->data['token']);
 		    }
 		}
-        
+
 		$this->data['heading_title'] = $this->language->get('heading_title');
 
 		$this->data['text_enabled'] = $this->language->get('text_enabled');
@@ -75,6 +75,10 @@ class ControllerPaymentPaysera extends Controller {
       		'separator' => ' :: '
    		);
 
+//        $this->data['action'] = $this->url->link('payment/paysera', 'token=' . $this->session->data['token'], 'SSL');
+//
+//        $this->data['cancel'] = $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL');
+
 		$this->data['action'] = HTTPS_SERVER . 'index.php?route=payment/paysera&token=' . $this->session->data['token'];
 
 		$this->data['cancel'] = HTTPS_SERVER . 'index.php?route=extension/payment&token=' . $this->session->data['token'];
@@ -110,7 +114,7 @@ class ControllerPaymentPaysera extends Controller {
 		} else {
 			$this->data['paysera_order_status_id'] = $this->config->get('paysera_order_status_id');
 		}
-		
+
 	    if (isset($this->request->post['display_payments_list'])) {
 			$this->data['display_payments_list'] = $this->request->post['display_payments_list'];
 		} else {
@@ -120,7 +124,7 @@ class ControllerPaymentPaysera extends Controller {
 		$this->load->model('localisation/order_status');
 
 		$this->data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses(); //here
-        
+
 		$this->data['payment_countries'] = $this->getCountries();
 
 		if (isset($this->request->post['paysera_geo_zone_id'])) {
@@ -142,7 +146,7 @@ class ControllerPaymentPaysera extends Controller {
 		if (isset($this->request->post['paysera_status'])) {
 			$this->data['paysera_status'] = $this->request->post['paysera_status'];
 		} else {
-			$this->data['payasera_status'] = $this->config->get('paysera_status');
+			$this->data['paysera_status'] = $this->config->get('paysera_status');
 		}
 
 		if (isset($this->request->post['paysera_sort_order'])) {
@@ -150,7 +154,7 @@ class ControllerPaymentPaysera extends Controller {
 		} else {
 			$this->data['paysera_sort_order'] = $this->config->get('paysera_sort_order');
 		}
-		
+
 		$this->template = 'payment/paysera.tpl';
 		$this->children = array(
 			'common/header',
@@ -192,10 +196,10 @@ class ControllerPaymentPaysera extends Controller {
 		if(!$projectId || !$language) {
             return null;
         }
-      
+
         $methods = WebToPay::getPaymentMethodList($projectId)
         ->setDefaultLanguage($language);
-        
+
         return $methods->getCountries();
 	}
 }
