@@ -1,7 +1,7 @@
 <?php
 // Heading
-$_['heading_title']      = 'Mokėjimai';
-$_['text_title'] 		 = 'Mokėjimai.lt';
+$_['heading_title']      = 'Paysera';
+$_['text_title']         = 'Paysera';
 
 // Text 
 $_['text_payment']       = 'Payment';
@@ -10,6 +10,11 @@ $_['text_development']   = '<span style="color: red;">In Development</span>';
 $_['text_successful']    = 'On - Always Successful';
 $_['text_declined']      = 'On - Always Declined';
 $_['text_off']           = 'Off';
+$_['text_response']     = '';
+$_['text_failure']      = '... Jūsų mokėjimas atmestas!';
+$_['text_failure_wait'] = '<b><span style="color: #FF0000">Prašau palaukti...</span></b><br>'
+        . 'Jeigu Jūs nebūsite nukreipti į kitą puslapį per 10 sekundžių, paspauskite <a href="%s">čia</a>.';										  
+
       
 // Entry 
 $_['entry_project']      = 'Project ID:';
@@ -27,7 +32,7 @@ $_['help_callback']      = '';
 
 // Pay Method Select
 $_['text_paycountry']    = 'Mokėjimo šalis';
-$_['text_chosen']		 = 'Pasirinkote atsiskaitymą per mokėjimai.lt sistemą';
+$_['text_chosen']	 = 'Pasirinkote atsiskaitymą per Paysera sistemą';
 
 
 // Error
@@ -35,4 +40,3 @@ $_['error_permission']   = 'Warning: You do not have permission to modify paymen
 $_['error_project']      = 'Reikia nurodyti projeto ID!';
 $_['error_sign']     	 = 'Reikia nurodyti projekto slaptažodį!';
 $_['error_lang']     	 = 'Lang code Required!';
-

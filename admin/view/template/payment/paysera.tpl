@@ -1,144 +1,185 @@
-<?php echo $header; ?>
+<?php echo $header; ?><?php echo $column_left; ?>
 
 <?php if ($error_warning): ?>
 <div class="warning"><?php echo $error_warning; ?></div>
 <?php endif; ?>
 
-<div class="box">
-    <div class="heading">
-        <h1 style="background-image: url('view/image/payment.png');"><?php echo $heading_title; ?></h1>
-        <div class="buttons">
-        	<a onclick="$('#form').submit();" class="button"><span><?php echo $button_save; ?></span></a>
-        	<a onclick="location = '<?php echo $cancel; ?>';" class="button"><span><?php echo $button_cancel; ?></span></a>
+<div id="content">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <button type="submit" form="form-paysera" data-toggle="tooltip" title="<?php echo $button_save; ?>" class="btn btn-primary"><i class="fa fa-save"></i></button>
+                <a href="<?php echo $cancel; ?>" data-toggle="tooltip" title="<?php echo $button_cancel; ?>" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+            <h1><?php echo $heading_title; ?></h1>
+            <ul class="breadcrumb">
+                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                <?php } ?>
+            </ul>
         </div>
     </div>
-    <div class="content">
-        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
-            <table class="form">
-            	<tr>
-            		<td><span class="required">*</span> <?php echo $entry_project; ?></td>
-            		<td><input type="text" name="paysera_project" value="<?php echo $paysera_project; ?>" /> <br />
-            			<?php if ($error_project): ?>
-            			<span class="error"><?php echo $error_project; ?></span>
-            			<?php endif; ?>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><span class="required">*</span> <?php echo $entry_sign; ?></td>
-            		<td>
-            			<input type="text" name="paysera_sign" value="<?php echo $paysera_sign; ?>" /><br />
-            			<?php if ($error_sign): ?>
-						<span class="error"><?php echo $error_sign; ?></span>
-            			<?php endif; ?>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><span class="required">*</span> <?php echo $entry_lang; ?></td>
-            		<td>
-            			<input type="text" name="paysera_lang" value="<?php echo $paysera_lang; ?>" /> <br />
-            			<?php if ($error_lang): ?>
-						<span class="error"><?php echo $error_lang; ?></span>
-            			<?php endif; ?>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><?php echo $entry_test; ?></td>
-            		<td>
-                		<select name="paysera_test">
-          					<?php if($paysera_test == 0): ?>
-                    			<option value="0" selected="selected"><?php echo $text_off; ?></option>
-                    			<option value="100"><?php echo $text_on; ?></option>
-                			<?php else: ?>
-                    			<option value="0"><?php echo $text_off; ?></option>
-                    			<option value="100" selected="selected"><?php echo $text_on; ?></option>
-                			<?php endif;?>
-                		</select>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><?php echo $entry_order_status; ?></td>
-            		<td>
-            			<select name="paysera_order_status_id">
-            		    <?php foreach ($order_statuses as $order_status): ?>
-                		    <?php if ($order_status['order_status_id'] == $paysera_order_status_id): ?>
-            				<option value="<?php echo $order_status['order_status_id']; ?>" selected="selected"><?php echo $order_status['name']; ?></option>
-            				<?php else: ?>
-            				<option value="<?php echo $order_status['order_status_id']; ?>"><?php echo $order_status['name']; ?></option>
-                			<?php endif; ?>
-            			<?php endforeach; ?>
-            			</select>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><?php echo $entry_geo_zone; ?></td>
-            		<td>
-                		<select name="paysera_geo_zone_id">
-                			<option value="0"><?php echo $text_all_zones; ?></option>
-                			<?php foreach ($geo_zones as $geo_zone): ?>
-                    			<?php if ($geo_zone['geo_zone_id'] == $paysera_geo_zone_id): ?>
-                    			<option value="<?php echo $geo_zone['geo_zone_id']; ?>" selected="selected"><?php echo $geo_zone['name']; ?></option>
-    	                        <?php else: ?>
-                    			<option value="<?php echo $geo_zone['geo_zone_id']; ?>"><?php echo $geo_zone['name']; ?></option>
-                    			<?php endif; ?>
-                			<?php endforeach; ?>
-                		</select>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td width="25%"><?php echo $entry_status; ?></td>
-            		<td>
-            			<select name="paysera_status">
-            		    <?php if ($paysera_status): ?>
-            			<option value="1" selected="selected"><?php echo $text_enabled; ?></option>
-            			<option value="0"><?php echo $text_disabled; ?></option>
-            			<?php else: ?>
-            			<option value="1"><?php echo $text_enabled; ?></option>
-            			<option value="0" selected="selected"><?php echo $text_disabled; ?></option>
-            			<?php endif; ?>
-            			</select>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><?php echo $entry_default_payments; ?></td>
-            		<td>
-                		<select name="default_payment_country">
-                		<?php foreach($payment_countries as $country ): ?>
-                		    <?php if($country->getCode() == $default_payment_country): ?>
-        						<option value="<?php echo $country->getCode(); ?>" selected="selected"><?php echo $country->getTitle(); ?></option>
-        					<?php else: ?>
-        						<option value="<?php echo $country->getCode(); ?>"><?php echo $country->getTitle(); ?></option>
-        					<?php endif; ?>
-    	                <?php endforeach; ?>
-                		</select>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><?php echo $entry_display_payments; ?></td>
-            		<td>
-                		<select name="display_payments_list">
-                			<?php if($display_payments_list == 1): ?>
-                			<option value="1" selected="selected"><?php echo $text_yes; ?></option>
-                			<option value="0"><?php echo $text_no; ?></option>
-                			<?php else: ?>
-                			<option value="1"><?php echo $text_yes; ?></option>
-                			<option value="0" selected="selected"><?php echo $text_no; ?></option>
-                			<?php endif; ?>
-                		</select>
-            		</td>
-            	</tr>
-            	<tr>
-            		<td><?php echo $entry_sort_order; ?></td>
-            		<td>
-            			<input type="text" name="paysera_sort_order"value="<?php echo $paysera_sort_order; ?>" size="1" />
-            		</td>
-            	</tr>
-            </table>
+
+    <div class="container-fluid">
+        <?php if ($error_warning) { ?>
+        <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+        <?php } ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-pencil"></i> <?php echo $text_edit; ?></h3>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="panel-body">
+        <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-paysera" class="form-horizontal">
+            <div class="form-group required">
+                <label class="col-sm-2 control-label" for="paysera_project"><?php echo $entry_project; ?></label>
+                <div class="col-sm-10">
+                    <input type="text" name="paysera_project" value="<?php echo $paysera_project; ?>" class="form-control" />
+                    <?php if ($error_project) { ?>
+                    <div class="text-danger"><?php echo $error_project; ?></div>
+                    <?php } ?>
+                </div>
+            </div>
+
+
+            <div class="form-group required">
+                <label class="col-sm-2 control-label" for="paysera_sign"><?php echo $entry_sign; ?></label>
+                <div class="col-sm-10">
+                    <input type="text" name="paysera_sign" value="<?php echo $paysera_sign; ?>" class="form-control" />
+                    <?php if ($error_sign) { ?>
+                    <div class="text-danger"><?php echo $error_sign; ?></div>
+                    <?php } ?>
+                </div>
+            </div>
+
+
+            <div class="form-group required">
+                <label class="col-sm-2 control-label" for="paysera_lang"><span data-toggle="tooltip" title="<?php echo $help_lang; ?>"><?php echo $entry_lang; ?></span></label>
+                <div class="col-sm-10">
+                    <input type="text" name="paysera_lang" value="<?php echo $paysera_lang; ?>" class="form-control" />
+                    <?php if ($error_lang) { ?>
+                    <div class="text-danger"><?php echo $error_lang; ?></div>
+                    <?php } ?>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="paysera_test"><?php echo $entry_test; ?></label>
+                <div class="col-sm-10">
+                    <select name="paysera_test" class="form-control">
+                        <?php if($paysera_test == 0): ?>
+                        <option value="0" selected="selected"><?php echo $text_off; ?></option>
+                        <option value="100"><?php echo $text_on; ?></option>
+                        <?php else: ?>
+                        <option value="0"><?php echo $text_off; ?></option>
+                        <option value="100" selected="selected"><?php echo $text_on; ?></option>
+                        <?php endif;?>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-new-order-status"><?php echo $entry_new_order_status; ?></label>
+                <div class="col-sm-10">
+                    <select name="paysera_new_order_status_id" id="input-new-order-status" class="form-control">
+                        <?php foreach ($order_statuses as $order_status) { ?>
+                        <?php if ($order_status['order_status_id'] == $paysera_new_order_status_id) { ?>
+                        <option value="<?php echo $order_status['order_status_id']; ?>" selected="selected"><?php echo $order_status['name']; ?></option>
+                        <?php } else { ?>
+                        <option value="<?php echo $order_status['order_status_id']; ?>"><?php echo $order_status['name']; ?></option>
+                        <?php } ?>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-order-status"><?php echo $entry_order_status; ?></label>
+                <div class="col-sm-10">
+                    <select name="paysera_order_status_id" id="input-order-status" class="form-control">
+                        <?php foreach ($order_statuses as $order_status) { ?>
+                        <?php if ($order_status['order_status_id'] == $paysera_order_status_id) { ?>
+                        <option value="<?php echo $order_status['order_status_id']; ?>" selected="selected"><?php echo $order_status['name']; ?></option>
+                        <?php } else { ?>
+                        <option value="<?php echo $order_status['order_status_id']; ?>"><?php echo $order_status['name']; ?></option>
+                        <?php } ?>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-geo-zone"><?php echo $entry_geo_zone; ?></label>
+                <div class="col-sm-10">
+                    <select name="paysera_geo_zone_id" id="input-geo-zone" class="form-control">
+                        <option value="0"><?php echo $text_all_zones; ?></option>
+                        <?php foreach ($geo_zones as $geo_zone) { ?>
+                        <?php if ($geo_zone['geo_zone_id'] == $paysera_geo_zone_id) { ?>
+                        <option value="<?php echo $geo_zone['geo_zone_id']; ?>" selected="selected"><?php echo $geo_zone['name']; ?></option>
+                        <?php } else { ?>
+                        <option value="<?php echo $geo_zone['geo_zone_id']; ?>"><?php echo $geo_zone['name']; ?></option>
+                        <?php } ?>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
+                <div class="col-sm-10">
+                    <select name="paysera_status" id="input-status" class="form-control">
+                        <?php if ($paysera_status) { ?>
+                        <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                        <option value="0"><?php echo $text_disabled; ?></option>
+                        <?php } else { ?>
+                        <option value="1"><?php echo $text_enabled; ?></option>
+                        <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="paysera_display_payments_list"><?php echo $entry_display_payments; ?></label>
+                <div class="col-sm-10">
+                    <select name="paysera_display_payments_list" class="form-control">
+                        <?php if($paysera_display_payments_list == 1): ?>
+                        <option value="1" selected="selected"><?php echo $text_yes; ?></option>
+                        <option value="0"><?php echo $text_no; ?></option>
+                        <?php else: ?>
+                        <option value="1"><?php echo $text_yes; ?></option>
+                        <option value="0" selected="selected"><?php echo $text_no; ?></option>
+                        <?php endif; ?>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-sort-order"><?php echo $entry_sort_order; ?></label>
+                <div class="col-sm-10">
+                    <input type="text" name="paysera_sort_order" value="<?php echo $paysera_sort_order; ?>" placeholder="<?php echo $entry_sort_order; ?>" id="input-sort-order" class="form-control" />
+                </div>
+            </div>
         </form>
     </div>
 </div>
 
-<form action="<?php echo $action; ?>" method="POST" id="refresh">
-    <input type="text" name="refresh" value="1" style="display: none;" />
-</form>
+    </div>
+</div>
 
 <?php echo $footer; ?>

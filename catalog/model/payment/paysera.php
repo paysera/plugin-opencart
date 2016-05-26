@@ -24,6 +24,7 @@ class ModelPaymentPaysera extends Model {
             $method_data = array(
                 'code'       => 'paysera',
                 'title'      => $this->language->get('text_title'),
+                'terms'      => '',
                 'sort_order' => $this->config->get('paysera_sort_order')
             );
         }

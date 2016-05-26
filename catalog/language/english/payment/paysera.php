@@ -1,7 +1,7 @@
 <?php
 // Heading
 $_['heading_title']      = 'Paysera';
-$_['text_title'] 		 = 'Paysera.com';
+$_['text_title'] 	 = 'Paysera.com';
 
 // Text 
 $_['text_payment']       = 'Payment';
@@ -10,6 +10,10 @@ $_['text_development']   = '<span style="color: red;">In Development</span>';
 $_['text_successful']    = 'On - Always Successful';
 $_['text_declined']      = 'On - Always Declined';
 $_['text_off']           = 'Off';
+$_['text_response']     = '';
+$_['text_failure']      = '... Your payment has been cancelled!';
+$_['text_failure_wait'] = '<b><span style="color: #FF0000">Please wait...</span></b><br>If you are not automatically re-directed in 10 seconds, please click <a href="%s">here</a>.';										  
+
       
 // Entry 
 $_['entry_project']      = 'Project ID:';
@@ -27,7 +31,7 @@ $_['help_callback']      = '';
 
 // Pay Method Select
 $_['text_paycountry']    = 'Select payment country';
-$_['text_chosen']		 = 'You chose to pay via Paysera.com';
+$_['text_chosen']		 = 'You chose to pay via Paysera';
 
 
 // Error

@@ -7,12 +7,15 @@ $_['text_payment']       = 'Payment';
 $_['text_success']       = 'Success: You have modified Paysera account details!';
 $_['text_on']            = 'Įjungtas';
 $_['text_off']           = 'Išjungtas';
+$_['text_edit']          = 'Redaguoti Paysera';
 
 // Entry
 $_['entry_project']      = 'Projekto ID:';
 $_['entry_sign']         = 'Slaptažodis:';
-$_['entry_lang']     	 = 'Kalba <small>(LIT, ENG, RUS)<small>:';
+$_['entry_lang']     	 = 'Kalba:';
+$_['help_lang']     	 = 'LIT, ENG, RUS:';
 $_['entry_test']         = 'Testinis režimas:';
+$_['entry_new_order_status'] = 'Naujo užsakymo statusas:';
 $_['entry_order_status'] = 'Užsakymo statusas po mokėjimo:';
 $_['entry_payment_lang'] = 'Pirminė mokėjimo būdų šalis:';
 $_['entry_geo_zone']     = 'Geo zona:';

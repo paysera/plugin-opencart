@@ -11,8 +11,11 @@ $_['text_off']           = 'Off';
 // Entry
 $_['entry_project']      = 'Project ID:';
 $_['entry_sign']         = 'Signature password:';
-$_['entry_lang']     	 = 'Language <small>(LIT, ENG, RUS)<small>:';
+$_['entry_lang']     	 = 'Language:';
+$_['help_lang']     	 = 'LIT, ENG, RUS';
 $_['entry_test']         = 'Test Mode:';
+$_['text_edit']          = 'Edit Paysera';
+$_['entry_new_order_status'] = 'New Order Status:';
 $_['entry_order_status'] = 'Order Status after payment:';
 $_['entry_payment_lang'] = 'Default country of payment methods:';
 $_['entry_geo_zone']     = 'Geo Zone:';
